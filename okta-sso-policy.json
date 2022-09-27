@@ -1,0 +1,21 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "redshift:GetClusterCredentials",
+                "redshift:JoinGroup",
+                "redshift:CreateClusterUser"
+            ],
+            "Resource": [
+                "arn:aws:redshift:us-west-2:aws_account_number:cluster:redshiftcluster-identifier",
+                "arn:aws:redshift:us-west-2:aws_account_number:dbuser:redshiftcluster-identifier/${Redshift:DbUser}",
+                "arn:aws:redshift:us-west-2:aws_account_number:dbname:redshiftcluster-identifier/dev",
+                "arn:aws:redshift:us-west-2:aws_account_number:dbgroup:redshiftcluster-identifier/${aws:PrincipalTag/ssousers}",
+                "arn:aws:redshift:us-west-2:aws_account_number:dbgroup:redshiftcluster-identifier/${aws:PrincipalTag/ssoadmins}"
+            ]
+        }
+    ]
+}
